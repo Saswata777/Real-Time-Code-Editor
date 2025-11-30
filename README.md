@@ -6,7 +6,7 @@ A real-time collaborative code editor built with a **React (Vite/TypeScript)** f
 ## 📸 Screenshots
 
 ### Demo Video
-👀 **[Click here to watch the collaborative editing demo video](Collaborative Code Editor.mp4)**
+👀 **[Click here to watch the collaborative editing demo video]** (Collaborative Code Editor.mp4)
 
 ---
 
