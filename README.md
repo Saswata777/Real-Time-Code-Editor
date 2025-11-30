@@ -3,8 +3,12 @@
 
 A real-time collaborative code editor built with a **React (Vite/TypeScript)** frontend and a **Python (FastAPI)** backend.
 
-## 📸 Screenshots
+## Project Video
 ---
+
+https://github.com/user-attachments/assets/a5292569-b45e-4dc2-800d-242b76a92472
+
+
 
 ### User Interface
 
