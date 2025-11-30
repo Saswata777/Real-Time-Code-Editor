@@ -8,7 +8,7 @@ A real-time collaborative code editor built with a **React (Vite/TypeScript)** f
 
 ### User Interface
 
-| Join Room Screen | Editor Interface |
+| Join Room Screen | Room Id Generation |
 | :---: | :---: |
 | <img src="join.jpeg" alt="Join Room" width="100%"> | <img src="jion-1.jpeg" alt="Editor" width="100%"> |
 
