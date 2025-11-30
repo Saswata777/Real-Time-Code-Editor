@@ -5,7 +5,18 @@ A real-time collaborative code editor built with a **React (Vite/TypeScript)** f
 
 ## 📸 Screenshots
 
-![Editor Interface](./path/to/your/screenshot.png)
+### Demo Video
+👀 **[Click here to watch the collaborative editing demo video](Collaborative Code Editor.mp4)**
+
+---
+
+### User Interface
+
+**Join Room Screen**
+![Join Room Screen](join.jpeg)
+
+**Editor Interface**
+![Editor Interface](jion-1.jpeg)
 
 ## Prerequisites
 
