@@ -4,19 +4,13 @@
 A real-time collaborative code editor built with a **React (Vite/TypeScript)** frontend and a **Python (FastAPI)** backend.
 
 ## 📸 Screenshots
-
-### Demo Video
-👀 **[Click here to watch the collaborative editing demo video]** (Collaborative Code Editor.mp4)
-
 ---
 
 ### User Interface
 
-**Join Room Screen**
-![Join Room Screen](join.jpeg)
-
-**Editor Interface**
-![Editor Interface](jion-1.jpeg)
+| Join Room Screen | Editor Interface |
+| :---: | :---: |
+| <img src="join.jpeg" alt="Join Room" width="100%"> | <img src="jion-1.jpeg" alt="Editor" width="100%"> |
 
 ## Prerequisites
 
