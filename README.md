@@ -188,6 +188,22 @@ The WebSocket connection is established at `ws://localhost:8000/ws/{room_id}`.
 2.  **Synchronization Latency**: Users may need to type at a moderate pace to see consistent results immediately. Extremely rapid typing can sometimes outpace the WebSocket broadcast loop, causing temporary visual "jumps" or cursor resets.
 3.  **Scalability**: Room state is stored in-memory on a single server instance. This does not support horizontal scaling (multiple server instances) without adding a Pub/Sub layer (like Redis).
 4.  **Mock AI**: The autocomplete is rule-based (mocked) and does not use a real LLM.
+
+##  Future Improvements & Enhancements
+
+If I had more time, I would implement the following features to make the application production-ready:
+
+### 1. New Features
+* **Video Conferencing**: Integrate **WebRTC** (using SimplePeer or similar libraries) to allow developers to voice or video chat directly within the editor while pair programming.
+* **Enhanced User Presence**: Upgrade the sidebar to display a **real-time list of active users**. This would show exactly who is online and trigger toast notifications when users join or leave the room.
+* **Multi-Language Autocomplete**: Currently, the mock AI logic is restricted to Python. I would expand the backend service to parse and suggest syntax for other languages like **JavaScript, TypeScript, and Java**.
+
+### 2. Technical Optimizations
+* **CRDTs / Operational Transformation**: Replace the current "Last-Write-Wins" approach with **Yjs** to ensure truly conflict-free concurrent editing.
+* **Redis Pub/Sub**: Introduce Redis to handle WebSocket state, allowing the backend to scale across multiple server instances (horizontal scaling).
+* **Real AI Integration**: Connect the autocomplete endpoint to an actual LLM (like OpenAI or CodeLlama) instead of using static rule-based logic.
+
+  
 ## Tech Stack
 
 * **Frontend:** React, TypeScript, Vite, Chakra UI, Tailwind CSS
