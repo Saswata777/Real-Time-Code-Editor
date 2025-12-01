@@ -98,10 +98,9 @@ Open your **second terminal** and follow these steps:
 
 ## 📂 Project Structure
 
-```text
-Here is the file structure with brief, 2-4 word descriptions for the most critical files.
 
-```text
+
+```
 REAL TIME CODE EDITOR/
 ├── backend/
 │   ├── app/
