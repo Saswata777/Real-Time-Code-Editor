@@ -70,7 +70,7 @@ import {
   Divider,
   useToast
 } from "@chakra-ui/react";
-import { useParams, useSearchParams } from "react-router-dom"; // 1. Import hooks
+import { useParams, useSearchParams, useNavigate } from "react-router-dom"; // 1. Import hooks
 
 const Sidebar = () => {
   // 2. Get roomId from the URL path (assuming route is /editor/:roomId)
@@ -79,6 +79,12 @@ const Sidebar = () => {
   // 3. Get username from the URL query parameter (?u=username)
   const [searchParams] = useSearchParams();
   const username = searchParams.get("u") || "Guest"; 
+
+  const navigate = useNavigate();
+
+   const handleLeave = ()=>{
+    navigate("/");
+  };
 
   const toast = useToast();
 
@@ -93,6 +99,8 @@ const Sidebar = () => {
       });
     }
   };
+
+ 
 
   return (
     <Box
@@ -123,7 +131,7 @@ const Sidebar = () => {
             <Button colorScheme="blue" size="sm" width="full" onClick={copyRoomId}>
               Copy ID
             </Button>
-            <Button variant="outline" size="sm" width="full" colorScheme="gray">
+            <Button variant="outline" size="sm" width="full" colorScheme="gray" onClick={handleLeave}>
               Leave
             </Button>
           </HStack>
@@ -145,10 +153,10 @@ const Sidebar = () => {
           </HStack>
 
           {/* Placeholder for other users (This usually comes from your WebSocket list later) */}
-          <HStack opacity={0.5}>
+          {/* <HStack opacity={0.5}>
             <Avatar size="sm" name="Bob Smith" src="https://bit.ly/dan-abramov" />
             <Text fontSize="sm" fontWeight="bold">Bob</Text>
-          </HStack>
+          </HStack> */}
         </VStack>
       </VStack>
     </Box>

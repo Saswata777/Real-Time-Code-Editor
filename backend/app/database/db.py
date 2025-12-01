@@ -33,4 +33,13 @@ async def init_db():
         updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     );
     """
-    await database.execute(query=query)
+    # await database.execute(query=query)
+    async with database.transaction():
+        try:
+            await database.execute(query=query)
+            print("Database initialized successfully.")
+        except Exception as e:
+            # transaction will auto rollback
+            print("DB initialization failed — rolled back.")
+            print("Error:", e)
+            raise e  # optional: rethrow to stop the app

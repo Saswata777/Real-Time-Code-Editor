@@ -58,11 +58,11 @@ cd Real-Time-Code-Editor
     ```
 
 5.  **Run the Server**:
-    *(Make sure you are in the root folder)*
+    *(Make sure you are in the backend folder)*
 
     #### Runs the FastAPI server
     ```bash
-    uvicorn backend.app.main:app --reload
+    uvicorn app.main:app --reload
     ```
 
     *The server should now be running on `http://localhost:8000`.*
@@ -99,51 +99,57 @@ Open your **second terminal** and follow these steps:
 ## 📂 Project Structure
 
 ```text
+Here is the file structure with brief, 2-4 word descriptions for the most critical files.
+
+```text
 REAL TIME CODE EDITOR/
 ├── backend/
 │   ├── app/
+│   │   ├── database/             
+│   │   │   ├── __init__.py
+│   │   │   └── db.py              <-- Database connection setup
 │   │   ├── models/
 │   │   │   ├── __init__.py
-│   │   │   └── room_model.py
+│   │   │   └── room_model.py      
 │   │   ├── routers/
 │   │   │   ├── __init__.py
-│   │   │   ├── autocomplete.py
-│   │   │   └── rooms.py
+│   │   │   ├── autocomplete.py    <-- Autocomplete API routes
+│   │   │   ├── rooms.py           <-- Room management routes
+│   │   │   └── ws.py              <-- Real-time WebSocket route
 │   │   ├── schemas/
 │   │   │   ├── __init__.py
-│   │   │   ├── autocomplete.py
-│   │   │   └── room.py
+│   │   │   ├── autocomplete.py    <-- Autocomplete schemas 
+│   │   │   └── room.py            <-- Room schemas
 │   │   ├── services/
 │   │   │   ├── __init__.py
-│   │   │   ├── db.py
-│   │   │   └── room_manager.py
+│   │   │   └── room_service.py    <-- Room business logic
 │   │   ├── __init__.py
-│   │   └── main.py
+│   │   └── main.py                <-- Server entry point
 │   └── requirements.txt
 ├── frontend/
 │   ├── public/
 │   ├── src/
 │   │   ├── components/
-│   │   │   ├── CodeEditor.tsx
-│   │   │   ├── EditorPage.tsx
-│   │   │   ├── JoinRoom.tsx
+│   │   │   ├── CodeEditor.tsx     <-- Main editor component
+│   │   │   ├── EditorPage.tsx     <-- Editor layout view
+│   │   │   ├── JoinRoom.tsx       <-- Room entry screen
 │   │   │   ├── LanguageSelector.tsx
 │   │   │   ├── NewRoomPopover.tsx
-│   │   │   ├── Output.tsx
+│   │   │   ├── Output.tsx         <-- Code output display
 │   │   │   └── Sidebar.tsx
-│   │   ├── api.ts
+│   │   ├── api.ts                 <-- API request methods
 │   │   ├── App.css
-│   │   ├── App.tsx
+│   │   ├── App.tsx                <-- Main app routing
 │   │   ├── constants.ts
 │   │   ├── index.css
 │   │   ├── main.tsx
 │   │   ├── theme.ts
-│   │   └── ws.ts
+│   │   └── ws.ts                  <-- WebSocket connection logic
 │   ├── eslint.config.js
 │   ├── index.html
 │   ├── package.json
 │   ├── tsconfig.json
-│   └── vite.config.ts
+│   └── vite.config.ts             <-- Build configuration
 └── .gitignore
 ```
 

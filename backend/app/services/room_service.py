@@ -2,7 +2,7 @@
 import asyncio
 import uuid
 from typing import Dict, Set, Any
-from app.services.db import database
+from app.database.db import database
 
 class Room:
     def __init__(self, room_id: str, code: str = "", language: str = "python"):
@@ -48,12 +48,18 @@ class RoomManager:
         # VALUES (:rid, :code, 'python', NOW())
         # ON CONFLICT (room_id) DO UPDATE SET code = EXCLUDED.code, updated_at = NOW()
         # """
-        query = """
-            INSERT INTO rooms (room_id, code, language, updated_at)
-            VALUES (:rid, :code, 'python', CURRENT_TIMESTAMP)
-            ON CONFLICT (room_id) DO UPDATE SET code = EXCLUDED.code, updated_at = CURRENT_TIMESTAMP
-        """
+        transaction = await database.transaction()
+        try:
+            query = """
+                INSERT INTO rooms (room_id, code, language, updated_at)
+                VALUES (:rid, :code, 'python', CURRENT_TIMESTAMP)
+                ON CONFLICT (room_id) DO UPDATE SET code = EXCLUDED.code, updated_at = CURRENT_TIMESTAMP
+            """
 
-        await database.execute(query=query, values={"rid": room_id, "code": code})
+            await database.execute(query=query, values={"rid": room_id, "code": code})
+            await transaction.commit()
+        except Exception as e:
+            await transaction.rollback()
+            raise e
 
-room_manager = RoomManager()
+room_service = RoomManager()

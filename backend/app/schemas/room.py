@@ -2,10 +2,10 @@
 from pydantic import BaseModel
 from typing import Optional
 
-class CreateRoomResponse(BaseModel):
-    roomId: str
+class Room(BaseModel):
+    room_id: str
 
 class RoomState(BaseModel):
-    roomId: str
+    room_id: str
     code: str
     language: Optional[str] = "python"
